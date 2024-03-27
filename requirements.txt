@@ -4,5 +4,4 @@ requests==2.26.0
 urllib3==1.26.7
 webdriver_manager==3.5.2
 html5lib==1.1
-fake_useragent==0.1.11
-pyquery==1.4.3
+
