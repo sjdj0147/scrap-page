@@ -1,0 +1,73 @@
+body{
+    /*background: #2BC0E4;  /* fallback for old browsers */
+    /*background: -webkit-linear-gradient(to right, #EAECC6, #2BC0E4);  /* Chrome 10-25, Safari 5.1-6 */
+    /*background: linear-gradient(to right, #EAECC6, #2BC0E4); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+*/
+    background-color: aliceblue;
+    
+}
+h1{
+    text-align: center;
+    font-size: 40px;
+}
+pre.long-text {
+    white-space: pre-wrap; /* 줄 바꿈을 허용 */
+    word-wrap: break-word; /* 긴 단어를 여러 줄에 걸쳐 줄 바꿈 */
+    text-overflow: ellipsis; /* 긴 텍스트를 생략 부호로 처리 */
+    overflow: hidden; /* 요소의 내용이 영역을 벗어날 경우 숨김 처리 */
+}
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* 상세 설명 스타일 */
+.description {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 배송 정보 스타일 */
+.shipping-info {
+    font-style: italic;
+}
+
+/* 주의 사항 스타일 */
+.note {
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.topbtn{
+    margin-left: auto;
+    margin-right: auto;
+}
+button{
+    border-radius: 20%;
+    display: flex;
+    border: 0;
+    outline: none;
+    background-color: black;
+    color: whitesmoke;
+    width: 80px;
+    height: 32px;
+    display:flex;
+    text-align: center;
+    align-items:center;
+    justify-content:center;
+}
+.button-container {
+    display: flex;
+    justify-content: space-between;
+}
+h1{
+    font-size: 65px;
+    font-family: Georgia,serif;
+}

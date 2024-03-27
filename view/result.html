@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scraping Result</title>
+    <link rel="stylesheet" href="/static/result.css">
+</head>
+<body>
+    <h1>Scraping Result</h1>
+    <div class="container">
+        <button onclick=goBack() class = "topbtn"  style="margin-bottom: 5%;">Go Back</button>
+        <div class="brand-name">브랜드명: {{ result_dict.brand_name }}</div>
+        <div class="product-name">제품명: {{ result_dict.product_name }}</div>
+        <div class="thumbnail-img">
+            <p>썸네일 이미지:<br> <a href="{{ result_dict.image_url }}" target="_blank">{{ result_dict.image_url }}</a></p>
+        </div>
+        <div>
+            <p>정상가 : {{result_dict.original_price}}원</p>
+            {% if result_dict.discount_price %}
+            <p>할인가 : {{result_dict.discount_price}}원</p>
+            {% endif %}
+        </div>
+        <div class="options">
+            <p>옵션:</p>
+            
+            <ul>
+                {% if result_dict.options1 == "수량"%}
+                <li>{{result_dict.options1}}</li>
+                {% else %}
+                {% for option in result_dict.options1 %}
+                <li>{{ option }}</li>
+                {% endfor %}
+                {% endif %}
+            </ul>
+            {% if result_dict.options2 %}
+            <p>옵션2:</p>
+            <ul>
+                {% for option in result_dict.options2 %}
+                <li>{{ option }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+
+            {% if result_dict.options3 %}
+            <p>옵션3:</p>
+            <ul>
+                {% for option in result_dict.options3 %}
+                <li>{{ option }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+        {% if result_dict.delivery %}
+            {% if not result_dict.delivery is iterable or "imweb" not in result_dict.crawl %}
+                <div class="shipping-info">배송 정보: {{ result_dict.delivery }}</div>
+            {% else %}
+                <div class="shipping-info">
+                    <p>배송 정보:</p>
+                    <ul>
+                        {% for delivery_info in result_dict.delivery %}
+                            <li>{{ delivery_info[0] }}: {{ delivery_info[1] }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+        {% endif %}
+
+            <p style="margin-bottom: 0%;">상세 설명: </p>
+        <div id="intro1" class="description">{{ result_intro}}</div>
+        {%if result_dict.crawl=='cafe24' %}
+        <div id="intro2" class="description" style="display: none;">{{result_intro_v2}}</div>
+        {% endif %}
+        
+    </div>
+    <div class="button-container">
+        {%if result_dict.crawl=='cafe24' %}
+            <button onclick="introduce()">introduce</button>
+            <button onclick="goBack()">Go Back</button>    
+            <button onclick="introduce_v2()">introduce v2</button>
+        {% else %}
+            <button onclick=goBack() class = "topbtn"  style="margin-bottom: 5%;">Go Back</button>
+        {% endif %}
+    </div>
+
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+
+        function introduce_v2(){
+            var intro1 = document.getElementById('intro1')
+            intro1.style.display ="none"
+
+            var intro2 = document.getElementById('intro2')
+            intro2.style.display='block'
+            
+        }
+        function introduce(){
+            var intro1 = document.getElementById('intro1')
+            intro1.style.display ="block"
+
+            var intro2 = document.getElementById('intro2')
+            intro2.style.display='none'
+            
+        }
+    </script>
+</body>
+</html>

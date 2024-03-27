@@ -1,0 +1,15 @@
+body{
+    display: flex;
+    flex-direction: column; /* 요소를 세로로 배치 */
+    justify-content: center; /* 내용을 수평 가운데 정렬 */
+    align-items: center; /* 내용을 수직으로 위로 정렬 */
+    height: 60vh; /* 화면 전체 높이에 맞게 설정 */
+    background-color: aliceblue;
+    font-family: Georgia,Serif;
+}
+h1{
+    font-size: 65px;
+}
+p{
+    font-size: 25px;
+}
