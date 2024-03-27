@@ -11,6 +11,12 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from urllib.parse import urlparse
 import time
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+path = os.environ.get("path")
 
 
 class NaverScraper:
@@ -27,9 +33,7 @@ class NaverScraper:
         header = {
             "User-Agent": "Mozilla/5.0(Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36(KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
         }
-        driver = webdriver.Chrome(
-            "/Users/onthelook/Desktop/chromedriver", options=self.options
-        )
+        driver = webdriver.Chrome(path, options=self.options)
         driver.get(product_url)
         time.sleep(1)
 
