@@ -10,13 +10,9 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
-import os
-from dotenv import load_dotenv
+from decouple import config
 
-load_dotenv()
-
-path = os.environ.get("path")
-
+path = config("path")
 
 class ImwebScraper:
     def __init__(self):
