@@ -8,7 +8,9 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException, NoAlertPresentException
 from urllib.parse import urlparse
+from decouple import config
 
+path = config("path")
 
 class Cafe24Scraper:
     def __init__(self):
@@ -24,9 +26,7 @@ class Cafe24Scraper:
         header = {
             "User-Agent": "Mozilla/5.0(Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36(KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
         }
-        driver = webdriver.Chrome(
-            "/Users/onthelook/dev_assigment/chromedriver", options=self.options
-        )
+        driver = webdriver.Chrome(path, options=self.options)
         driver.get(product_url)
         time.sleep(1)
 
