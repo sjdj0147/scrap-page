@@ -10,7 +10,10 @@ from selenium.common.exceptions import TimeoutException, NoAlertPresentException
 from urllib.parse import urlparse
 from decouple import config
 
-path = config("path")
+try:
+    path = config("path")
+except:
+    path = "/Users/onthelook/dev_assigment/chromedriver"
 
 class SixshopScraper:
     def __init__(self):
